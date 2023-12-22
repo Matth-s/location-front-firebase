@@ -1,0 +1,47 @@
+.create-material-form-container {
+  width: 500px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 auto 30px;
+
+  input[type='text'],
+  input[type='number'],
+  textarea {
+    width: 100%;
+  }
+
+  input[type='submit'] {
+    width: 100%;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .form-div {
+    margin-bottom: 10px;
+  }
+
+  .status-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin: 20px auto;
+
+    label {
+      margin-bottom: 0;
+    }
+
+    label,
+    input {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.search-bar-booking-container {
+  width: fit-content;
+  margin: 0 auto 30px;
+
+  form,
+  div {
+    display: flex;
+  }
+
+  form {
+    gap: 20px;
+  }
+
+  div {
+    align-items: center;
+  }
+
+  select {
+    padding: 0 20px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,11 @@
+.material-search-bar {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto 30px;
+  width: fit-content;
+
+  input[type='text'] {
+    width: 250px;
+    height: 40px;
+  }
+}

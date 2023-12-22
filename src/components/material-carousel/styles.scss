@@ -1,0 +1,125 @@
+.carousel-root {
+  display: flex;
+  flex-direction: row-reverse;
+  width: fit-content;
+  gap: 100px;
+  margin: auto;
+}
+
+.carousel {
+  border: 1px solid grey;
+
+  .slider-wrapper,
+  .slider {
+    height: 400px;
+  }
+
+  .slide {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+
+      img {
+        object-fit: cover;
+        max-height: 380px;
+        width: auto;
+      }
+    }
+  }
+
+  .carousel-status {
+    display: none;
+  }
+}
+
+.carousel:first-child {
+  margin: auto;
+  height: 400px;
+  width: 800px !important;
+
+  button {
+    background-color: rgb(160, 149, 149) !important;
+  }
+}
+
+.carousel:last-child::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel:last-child {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 400px;
+  width: 84px !important;
+  min-width: 84px !important;
+  overflow-y: scroll;
+  overflow-x: scroll;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100% !important;
+    transform: unset !important;
+    transition-duration: unset;
+  }
+
+  li {
+    margin: auto;
+    cursor: pointer;
+  }
+
+  .thumbs-wrapper {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .carousel-root {
+    gap: 30px;
+    width: 100%;
+  }
+
+  .carousel:first-child {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .carousel-root {
+    flex-direction: column-reverse;
+  }
+
+  .carousel:first-child {
+    width: 100% !important;
+
+    ul {
+      img {
+        max-width: 95%;
+      }
+    }
+  }
+
+  .carousel:last-child {
+    height: fit-content !important;
+    width: 100% !important;
+    overflow-y: hidden !important;
+    overflow-x: scroll !important;
+
+    .thumbs-wrapper {
+      min-width: auto;
+    }
+
+    ul {
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    li {
+      margin: 0;
+      min-width: 78px !important;
+    }
+  }
+}

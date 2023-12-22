@@ -1,0 +1,26 @@
+.booking-provided-material-container {
+  width: fit-content;
+  margin: auto;
+
+  .material-table {
+    border-collapse: collapse;
+    border: 1pt solid black;
+
+    tr {
+      height: 40px;
+      width: 100px;
+      border-bottom: 1pt solid black;
+    }
+
+    td,
+    th {
+      padding: 0 20px;
+    }
+
+    td,
+    th {
+      text-align: center;
+      border-right: 1pt solid black;
+    }
+  }
+}

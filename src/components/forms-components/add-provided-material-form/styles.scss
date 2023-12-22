@@ -1,0 +1,51 @@
+.add-provided-material-form-container {
+  h2 {
+    text-align: center;
+    margin: 0 auto 15px;
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 15px;
+    width: 100%;
+    height: auto;
+  }
+
+  thead {
+    th {
+      width: fit-content;
+    }
+  }
+
+  tbody {
+    tr {
+      height: 40px;
+    }
+
+    td:first-child {
+      input {
+        width: 200px;
+      }
+    }
+
+    td:nth-child(2),
+    td:nth-child(3),
+    td:nth-child(4) {
+      width: 50px;
+
+      input,
+      p {
+        width: 50px;
+      }
+    }
+
+    input,
+    td {
+      text-align: center;
+    }
+  }
+
+  h3 {
+    text-align: center;
+  }
+}

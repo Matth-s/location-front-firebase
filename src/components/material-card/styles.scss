@@ -1,0 +1,41 @@
+.material-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+  height: 300px;
+  border: 1px solid grey;
+  border-radius: 6px;
+
+  .image-div {
+    display: flex;
+    min-width: 300px;
+    min-height: 300px;
+
+    img {
+      margin: auto;
+      max-width: 290px;
+      max-height: 290px;
+      object-fit: contain;
+    }
+  }
+
+  .presentation-product {
+    width: 60%;
+    height: auto;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  button {
+    height: 40px;
+    padding: 0 20px;
+  }
+}
+
+.material-card-container:not(:last-child) {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,67 @@
+.add-image-form-container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+
+  h4,
+  p {
+    text-align: center;
+  }
+
+  h4 {
+    margin-bottom: 15px;
+  }
+
+  p {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  aside {
+    display: flex;
+    height: 270px;
+    margin-bottom: 12px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 15px;
+  }
+
+  .thumbs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border: 1px solid grey;
+    padding: 0 20px;
+  }
+
+  .image-main {
+    border: 1px solid orange;
+  }
+
+  img {
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: none;
+    background-color: unset;
+    z-index: 1;
+
+    img {
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg)
+        brightness(100%) contrast(100%);
+    }
+  }
+}

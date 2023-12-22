@@ -1,0 +1,29 @@
+.action-bar-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 60px;
+
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    background-color: transparent;
+  }
+
+  img {
+    width: 30px;
+    height: 20px;
+  }
+
+  div {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    margin: auto;
+  }
+
+  button {
+    padding: 10px 20px;
+  }
+}

@@ -1,0 +1,31 @@
+.material-presentation-container {
+  width: 95%;
+  height: auto;
+
+  .information-content {
+    padding-left: 30px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .information-div {
+    .information-content {
+      padding-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.view-booking-container {
+  width: 1100px;
+  margin: auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+
+  .content-div {
+    display: flex;
+    justify-content: space-around;
+  }
+}

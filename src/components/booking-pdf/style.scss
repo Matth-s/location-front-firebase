@@ -1,0 +1,32 @@
+.view-booking-pdf-container {
+  background-color: #fff;
+  border-radius: 10px;
+  height: auto;
+  width: fit-content;
+
+  span {
+    padding: 10px 20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+  }
+
+  div {
+    height: 40px;
+  }
+
+  a {
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .view-booking-pdf-container {
+    width: 95%;
+
+    div {
+      height: 120px;
+      flex-direction: column;
+    }
+  }
+}
