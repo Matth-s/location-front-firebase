@@ -75,7 +75,7 @@ export const deleteMessagingService = createAsyncThunk(
   'delete messaging',
   async ({ id }: { id: string }, { dispatch }) => {
     try {
-      const messagingRef = doc(db, 'messaging', id);
+      const messagingRef = doc(db, 'messagings  ', id);
       const messagingSnapShot = await getDoc(messagingRef);
 
       if (!messagingSnapShot.exists()) {
@@ -85,7 +85,10 @@ export const deleteMessagingService = createAsyncThunk(
       await deleteDoc(messagingRef);
 
       dispatch(setDeleteMessaging(id));
+
+      return { status: 201 };
     } catch (error) {
+      console.log(error);
       throw new Error('Une erreur est survenue');
     }
   }

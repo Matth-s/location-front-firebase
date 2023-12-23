@@ -1,6 +1,10 @@
 import { createPortal } from 'react-dom';
 import { useAppSelector } from '../../store/store';
-import { bookingSchema, materialSchema } from '../../schema';
+import {
+  bookingSchema,
+  materialSchema,
+  messagingSchema,
+} from '../../schema';
 
 import CloseModalButton from '../close-modal-button/CloseModalButton';
 import DeleteMaterialForm from '../forms/delete-material-form/DeleteMaterialForm';
@@ -11,13 +15,15 @@ import BookingPdf from '../booking-pdf/BookingPdf';
 import EditBookingForm from '../forms/edit-booking-form/EditBookingForm';
 
 import './styles.scss';
+import DeleteMessagingForm from '../forms/delete-messaging-form/DeleteMessagingForm';
 
 type Props = {
   material?: materialSchema;
   booking?: bookingSchema;
+  messaging?: messagingSchema;
 };
 
-const ModalProvider = ({ material, booking }: Props) => {
+const ModalProvider = ({ material, booking, messaging }: Props) => {
   const { modalToOpen } = useAppSelector((state) => state.modalSlice);
 
   switch (modalToOpen) {
@@ -103,6 +109,19 @@ const ModalProvider = ({ material, booking }: Props) => {
       }
 
       return <></>;
+
+    case 8:
+      if (messaging) {
+        return createPortal(
+          <div className="modal-container">
+            <CloseModalButton />
+            <div className="modal-content">
+              <DeleteMessagingForm id={messaging.id} />
+            </div>
+          </div>,
+          document.body
+        );
+      }
   }
 };
 

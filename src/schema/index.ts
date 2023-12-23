@@ -89,4 +89,5 @@ export enum modalToOpen {
   'deleteBookingModal' = 5,
   'viewBoookingPdf' = 6,
   'editBookingModal' = 7,
+  'deleteMessagingModal' = 8,
 }

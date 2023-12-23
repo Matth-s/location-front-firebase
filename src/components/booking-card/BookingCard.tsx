@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { bookingSchema } from '../../schema';
 import BookingStatus from '../booking-status/BookingStatus';
+import { formatDate } from '../../helpers/fomatDate';
 
 type Props = {
   booking: bookingSchema;
@@ -24,8 +25,8 @@ const BookingCard = ({ booking }: Props) => {
 
   return (
     <tr onClick={() => handleViewBooking(id)}>
-      <td>{bookingDates[0]}</td>
-      <td>{bookingDates[bookingDates.length - 1]}</td>
+      <td>{formatDate(bookingDates[0])}</td>
+      <td>{formatDate(bookingDates[bookingDates.length - 1])}</td>
       <td>{firstName}</td>
       <td>{lastName}</td>
       <td>{materialName}</td>

@@ -13,6 +13,8 @@ import Loader from '../../components/loader/Loader';
 import ActionBar from '../../components/action-bar/ActionBar';
 import ModalProvider from '../../components/modal-provider/ModalProvider';
 
+import './styles.scss';
+
 const ViewMessagingPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
@@ -53,14 +55,14 @@ const ViewMessagingPage = () => {
   };
 
   return (
-    <div>
+    <div className="view-messaging-container">
       <Header />
       {isLoading ? (
         <Loader />
       ) : error ? (
         <p>une erreur est survenue</p>
       ) : findMessaging ? (
-        <>
+        <div className="view-messaging-content">
           <ActionBar>
             <button onClick={() => dispatch(setModalToOpen(2))}>
               Créer la réservation
@@ -70,11 +72,13 @@ const ViewMessagingPage = () => {
             >
               Marquer comme {findMessaging.isRead ? 'non lu' : 'lu'}
             </button>
-            <button>Supprimer</button>
+            <button onClick={() => dispatch(setModalToOpen(8))}>
+              Supprimer
+            </button>
           </ActionBar>
 
-          <ModalProvider booking={findMessaging} />
-        </>
+          <ModalProvider messaging={findMessaging} />
+        </div>
       ) : (
         <p>message introuvable</p>
       )}
