@@ -75,11 +75,11 @@ export const deleteMessagingService = createAsyncThunk(
   'delete messaging',
   async ({ id }: { id: string }, { dispatch }) => {
     try {
-      const messagingRef = doc(db, 'messagings  ', id);
+      const messagingRef = doc(db, 'messagings', id);
       const messagingSnapShot = await getDoc(messagingRef);
 
       if (!messagingSnapShot.exists()) {
-        return dispatch(setDeleteMessaging(id));
+        dispatch(setDeleteMessaging(id));
       }
 
       await deleteDoc(messagingRef);

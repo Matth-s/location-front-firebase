@@ -14,3 +14,11 @@
     }
   }
 }
+
+@media screen and (max-width: 1010px) {
+  .view-material-page-container {
+    .view-material-container {
+      width: 95%;
+    }
+  }
+}

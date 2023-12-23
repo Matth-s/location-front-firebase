@@ -1,11 +1,15 @@
 import { NavLink } from 'react-router-dom';
-
-import './styles.scss';
+import { useState } from 'react';
 import { useAppDispatch } from '../../store/store';
 import { logOutService } from '../../services/auth-service';
 
+import iconMenu from '../../assets/icon-menu.svg';
+
+import './styles.scss';
+
 const Header = () => {
   const dispatch = useAppDispatch();
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const handleLogOut = () => {
     dispatch(logOutService());
@@ -13,7 +17,12 @@ const Header = () => {
 
   return (
     <header className="header-container">
-      <nav>
+      <img
+        onClick={() => setOpenMenu((prev) => !prev)}
+        src={iconMenu}
+        alt="Menu"
+      />
+      <nav className={`${openMenu ? '' : 'close'}`}>
         <ul>
           <NavLink to={'/materiel'}>Matériel</NavLink>
           <NavLink to={'/ajouter-un-materiel'}>

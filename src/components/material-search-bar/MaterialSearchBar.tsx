@@ -1,31 +1,32 @@
-import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import './styles.scss';
+import { useForm } from 'react-hook-form';
 
 type Props = {
   search: string;
 };
 
 const MaterialSearchBar = ({ search }: Props) => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [, setSearchParams] = useSearchParams();
 
-  const [searchInput, setSearchInput] = useState<string>(search);
+  const { handleSubmit, register } = useForm({
+    values: {
+      search: search,
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    setSearchParams(`recherche=${searchInput}`);
+  const processForm = (data: { search: string }) => {
+    setSearchParams(`recherche=${data.search}`);
   };
 
   return (
     <div className="material-search-bar">
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={handleSubmit(processForm)}>
         <input
           type="text"
           placeholder="Je recherche ..."
-          onChange={(e) => setSearchInput(e.target.value.trim())}
-          defaultValue={searchInput}
+          {...register('search')}
         />
         <input type="submit" value="Rechercher" />
       </form>

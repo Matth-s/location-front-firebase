@@ -80,6 +80,7 @@ export const updateMaterialService = createAsyncThunk(
 
       return { status: 201 };
     } catch (error: any) {
+      console.log(error);
       throw new Error(error);
     }
   }

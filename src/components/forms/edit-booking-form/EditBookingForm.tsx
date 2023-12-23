@@ -2,13 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { FormBookingSchema } from '../../../validations';
 import { bookingSchema } from '../../../schema';
-import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
-import {
-  createBookingService,
-  updateBookingService,
-} from '../../../services/booking-service';
-import { useNavigate, useParams } from 'react-router-dom';
+import { updateBookingService } from '../../../services/booking-service';
 import { useAppDispatch } from '../../../store/store';
 import { toastifySetup } from '../../../utils/toastifySetup';
 import { totalSumBooking } from '../../../helpers/bookingHelpers';
@@ -22,7 +17,6 @@ type Props = {
 };
 
 const EditBookingForm = ({ booking }: Props) => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [formLoading, setFormLoading] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -54,7 +48,7 @@ const EditBookingForm = ({ booking }: Props) => {
               setValue('unavailableDates', res.unavailableDates);
             }
           })
-          .catch((error) => setError(true))
+          .catch(() => setError(true))
           .finally(() => setIsLoading(false));
       };
 

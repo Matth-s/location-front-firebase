@@ -18,7 +18,8 @@ const BookingStatus = ({ status }: Props) => {
         setColor('#33D69F');
         break;
     }
-  }, []);
+  }, [status]);
+
   return (
     <div
       style={{

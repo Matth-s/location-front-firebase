@@ -9,7 +9,7 @@ type Props = {
 };
 
 const BookingSearchBar = ({ search, filter }: Props) => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [, setSearchParams] = useSearchParams();
 
   const { handleSubmit, register } = useForm({
     values: {

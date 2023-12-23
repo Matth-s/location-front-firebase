@@ -13,9 +13,9 @@ import CreateBookingForm from '../forms/create-booking-form/CreateBookingForm';
 import DeleteBookingForm from '../forms/delete-booking-form/DeleteBookingForm';
 import BookingPdf from '../booking-pdf/BookingPdf';
 import EditBookingForm from '../forms/edit-booking-form/EditBookingForm';
+import DeleteMessagingForm from '../forms/delete-messaging-form/DeleteMessagingForm';
 
 import './styles.scss';
-import DeleteMessagingForm from '../forms/delete-messaging-form/DeleteMessagingForm';
 
 type Props = {
   material?: materialSchema;

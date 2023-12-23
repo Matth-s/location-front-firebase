@@ -25,9 +25,11 @@ const MaterialCard = ({ material }: Props) => {
           alt={name}
         />
       </div>
+
       <div className="presentation-product">
         <h2>{name}</h2>
-        <p>{description}</p>
+
+        <div className="cut-text">{description}</div>
       </div>
 
       <button onClick={() => navigate(`/materiel/${id}`)}>

@@ -24,10 +24,22 @@
   .presentation-product {
     width: 60%;
     height: auto;
+    max-height: 260px;
   }
 
   h2 {
     margin-bottom: 10px;
+  }
+
+  .cut-text {
+    width: 100%;
+    height: auto;
+    max-height: 210px;
+    display: -webkit-box;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   button {
@@ -38,4 +50,84 @@
 
 .material-card-container:not(:last-child) {
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1410px) {
+  .material-card-container {
+    .presentation-product {
+      width: 55%;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .material-card-container {
+    flex-direction: column;
+    height: auto;
+    width: 580px;
+    margin: auto;
+    gap: 30px;
+    padding: 20px 0;
+
+    .image-div {
+      min-width: 250px;
+      min-height: 250px;
+
+      img {
+        max-width: 240px;
+        max-height: 240px;
+        object-fit: contain;
+      }
+    }
+
+    .presentation-product {
+      width: 80%;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .material-card-container {
+    width: 95%;
+
+    .image-div {
+      min-width: 200px;
+      min-height: 200px;
+
+      img {
+        max-width: 190px;
+        max-height: 190px;
+      }
+    }
+
+    .cut-text {
+      -webkit-line-clamp: 6;
+      text-align: justify;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .material-card-container {
+    padding: 10px;
+
+    .image-div {
+      min-width: 150px;
+      min-height: 150px;
+
+      img {
+        max-width: 140px;
+        max-height: 140px;
+      }
+    }
+
+    .cut-text {
+      width: 90%;
+      text-align: center;
+    }
+  }
 }

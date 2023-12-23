@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { messagingSchema } from '../../../schema';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../../store/store';
 import { deleteMessagingService } from '../../../services/messaging-service';

@@ -16,3 +16,11 @@
     margin-bottom: 10px;
   }
 }
+
+@media screen and (max-width: 680px) {
+  .provided-material-container {
+    h2 {
+      text-align: center;
+    }
+  }
+}

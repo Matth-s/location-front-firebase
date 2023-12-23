@@ -34,7 +34,11 @@ const MaterielCarousel = ({
   }
 
   return (
-    <Carousel>
+    <Carousel
+      preventMovementUntilSwipeScrollTolerance={true}
+      swipeScrollTolerance={100}
+      swipeable={true}
+    >
       {imageGroup.map((image, index) => (
         <div key={index}>
           <img src={image} alt={`Image ${index}`} />

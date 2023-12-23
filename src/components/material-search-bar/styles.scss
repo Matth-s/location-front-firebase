@@ -1,11 +1,27 @@
 .material-search-bar {
   display: flex;
-  gap: 20px;
   margin: 0 auto 30px;
   width: fit-content;
+
+  form {
+    display: flex;
+    width: 100%;
+  }
 
   input[type='text'] {
     width: 250px;
     height: 40px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .material-search-bar {
+    width: 90%;
+    border: 1px solid red($color: #000000);
+
+    input[type='text'] {
+      width: 70%;
+      height: 40px;
+    }
   }
 }

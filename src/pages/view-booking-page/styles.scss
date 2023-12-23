@@ -17,4 +17,10 @@
     display: flex;
     justify-content: space-around;
   }
+
+  .status-div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 }

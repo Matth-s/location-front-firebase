@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { getBookingService } from '../../services/booking-service';
 import { useSearchParams } from 'react-router-dom';

@@ -15,6 +15,7 @@ import ModalProvider from '../../components/modal-provider/ModalProvider';
 import BookingInformation from '../../components/booking-information/BookingInformation';
 import BookingProvidedMaterial from '../../components/boooking-provided-material/BookingProvidedMaterial';
 import Loader from '../../components/loader/Loader';
+import BookingStatus from '../../components/booking-status/BookingStatus';
 
 import './styles.scss';
 
@@ -80,6 +81,11 @@ const ViewBookingPage = () => {
               Supprimer
             </button>
           </ActionBar>
+
+          <div className="status-div">
+            Status :
+            <BookingStatus status={findBooking.isCompleted} />
+          </div>
 
           <h2>
             Réservation de {findBooking.materialName} du{' '}

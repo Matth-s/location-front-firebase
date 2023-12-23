@@ -22,7 +22,6 @@ const ImportImageForm = ({
   presentationPicture,
   setValue,
   setImagesToUpload,
-  imagesToUpload,
 }: Props) => {
   const [imageGroup, setImageGroup] =
     useState<arrayPictureSchema[]>(arrayPicture);

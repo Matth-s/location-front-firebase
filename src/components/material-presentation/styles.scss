@@ -22,10 +22,22 @@
   }
 }
 
-@media screen and (max-width: 560px) {
-  .information-div {
+@media screen and (max-width: 680px) {
+  .material-presentation-container {
+    h2 {
+      text-align: center;
+    }
+
     .information-content {
-      padding-left: 10px;
+      padding-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .material-presentation-container {
+    .information-content {
+      padding-left: 5px;
     }
   }
 }

@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from '../../store/store';
 import Header from '../../components/header/Header';
 import MaterialCard from '../../components/material-card/MaterialCard';
 import MaterialSearchBar from '../../components/material-search-bar/MaterialSearchBar';
+import Loader from '../../components/loader/Loader';
 
 import './styles.scss';
-import Loader from '../../components/loader/Loader';
 
 const MaterialPage = () => {
   const dispatch = useAppDispatch();

@@ -1,8 +1,4 @@
-import {
-  materialSchema,
-  bookingSchema,
-  providedMaterialsBookingSchema,
-} from '../schema';
+import { materialSchema, bookingSchema } from '../schema';
 
 export const materialToBooking = ({
   material,
