@@ -6,9 +6,9 @@ import { useSearchParams } from 'react-router-dom';
 import BookingCard from '../../components/booking-card/BookingCard';
 import Header from '../../components/header/Header';
 import BookingSearchBar from '../../components/booking-search-bar/BookingSearchBar';
+import Loader from '../../components/loader/Loader';
 
 import './styles.scss';
-import Loader from '../../components/loader/Loader';
 
 const BookingPage = () => {
   const dispatch = useAppDispatch();

@@ -50,22 +50,24 @@ const CreateMaterialForm = () => {
     data.id = uuidv4();
 
     setFormLoading(true);
+
     if (imagesToUpload.length > 0) {
       const urls: arrayPictureSchema[] = await dispatch(
         postImageService({ images: imagesToUpload, id: data.id })
       ).unwrap();
 
       data.arrayPicture = [...urls];
+
       if (data.presentationPicture === '') {
         data.presentationPicture = urls[0].src;
-      } else {
-        const findImage = urls.map((url) => {
-          if (url.id.includes(data.presentationPicture)) {
-            return url.src;
-          }
-          return;
-        });
-        data.presentationPicture = findImage[0] as string;
+      }
+
+      if (data.presentationPicture !== '') {
+        const findImage = data.arrayPicture.find(
+          (item) => item.id === data.presentationPicture
+        );
+
+        findImage ? (data.presentationPicture = findImage.src) : '';
       }
     }
 

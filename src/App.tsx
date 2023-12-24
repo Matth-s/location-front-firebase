@@ -12,6 +12,7 @@ import BookingPage from './pages/booking-page/BookingPage';
 import ViewBookingPage from './pages/view-booking-page/ViewBookingPage';
 import MessagingPage from './pages/messaging-page/MessagingPage';
 import ViewMessagingPage from './pages/view-messaging-page/ViewMessagingPage';
+import Loader from './components/loader/Loader';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <p>chargement</p>
+        <Loader />
       ) : (
         <Routes>
           <Route element={<PrivateRoute />}>

@@ -1,0 +1,80 @@
+* {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+}
+
+button,
+input[type='submit'] {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.333px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.25px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.25px;
+}
+
+h4 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.194px;
+}
+
+.body-1 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.body-2 {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.body-3 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+label {
+  color: #3a4374;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.194px;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='tel'],
+textarea {
+  background-color: $color-grey;
+  outline: transparent;
+  border: none;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid #4661e6;
+  }
+}

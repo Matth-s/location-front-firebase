@@ -1,3 +1,5 @@
+@import '../../styles//colors.scss';
+
 .material-card-container {
   display: flex;
   align-items: center;
@@ -5,7 +7,7 @@
   padding: 0 20px;
   width: 100%;
   height: 300px;
-  border: 1px solid grey;
+  background: #fff;
   border-radius: 6px;
 
   .image-div {
@@ -29,6 +31,7 @@
 
   h2 {
     margin-bottom: 10px;
+    color: $color-blue-purple;
   }
 
   .cut-text {
@@ -40,11 +43,21 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: $color-blue-grey;
   }
 
   button {
     height: 40px;
     padding: 0 20px;
+    background-color: $color-grey;
+    border-radius: 10px;
+    color: $color-blue-purple;
+    border: none;
+
+    &:hover {
+      color: $color-grey;
+      background-color: $color-blue-purple;
+    }
   }
 }
 
@@ -84,6 +97,10 @@
       width: 80%;
     }
 
+    .cut-text {
+      text-align: center;
+    }
+
     h2 {
       text-align: center;
     }
@@ -106,7 +123,6 @@
 
     .cut-text {
       -webkit-line-clamp: 6;
-      text-align: justify;
     }
   }
 }
@@ -127,7 +143,6 @@
 
     .cut-text {
       width: 90%;
-      text-align: center;
     }
   }
 }

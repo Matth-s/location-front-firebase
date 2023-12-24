@@ -1,9 +1,17 @@
+@import '../../../styles/colors.scss';
+
 .edit-material-form-container {
   width: 500px;
   border: 1px solid grey;
   border-radius: 8px;
   padding: 20px;
   margin: 0 auto 0;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: $color-blue-dark;
+  }
 
   input[type='text'],
   input[type='number'],
@@ -13,6 +21,14 @@
 
   input[type='submit'] {
     width: 100%;
+    background-color: $color-purple;
+    border: none;
+    border-radius: 10px;
+    color: $color-grey;
+
+    &:hover {
+      background-color: $color-purple-hover;
+    }
   }
 
   textarea {

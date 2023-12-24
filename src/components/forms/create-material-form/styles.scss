@@ -1,6 +1,8 @@
+@import '../../../styles/colors.scss';
+
 .create-material-form-container {
   width: 500px;
-  border: 1px solid grey;
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
   margin: 0 auto 30px;
@@ -42,6 +44,17 @@
     label,
     input {
       cursor: pointer;
+    }
+  }
+
+  input[type='submit'] {
+    background-color: $color-purple;
+    border: none;
+    border-radius: 10px;
+    color: $color-grey;
+
+    &:hover {
+      background-color: $color-purple-hover;
     }
   }
 }

@@ -14,13 +14,15 @@ const MaterialProvided = ({ materialsProvided }: Props) => {
         {materialsProvided.length > 0 ? (
           materialsProvided.map((materialProvided) => (
             <li key={materialProvided.id}>
-              {materialProvided.materialName} :{' '}
+              <span>{materialProvided.materialName}</span> :{' '}
               {materialProvided.price}€
             </li>
           ))
         ) : (
-          <li>Aucun</li>
-        )}{' '}
+          <li>
+            <span>Aucun</span>
+          </li>
+        )}
       </ul>
     </div>
   );

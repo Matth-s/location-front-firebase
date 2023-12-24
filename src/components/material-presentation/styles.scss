@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .material-presentation-container {
   width: 95%;
   height: auto;
@@ -9,12 +11,19 @@
   h2 {
     margin-bottom: 20px;
     text-decoration: underline;
+    color: $color-blue-dark;
+    text-decoration-color: $color-blue-dark;
   }
 
   span {
     font-weight: bold;
     font-size: 18px;
     margin-right: 5px;
+    color: $color-blue-dark;
+  }
+
+  p {
+    color: $color-blue-grey;
   }
 
   p:not(:last-child) {

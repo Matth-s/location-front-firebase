@@ -52,10 +52,12 @@ const DeleteMaterialForm = ({ material }: Props) => {
   return (
     <div className="delete-material-form-container">
       <form onSubmit={(e) => handleSubmit(e)}>
-        <p>
+        <h3>
           Confimez-vous la suppression du matériel `{material.name}`,
-          cette action sera irréversible
-        </p>
+          cette action entrainera une impossibilité de modifier les
+          réservations en cours.
+        </h3>
+
         <div className="submit-div">
           <button
             type="button"

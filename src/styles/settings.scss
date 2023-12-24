@@ -1,3 +1,11 @@
+@import './colors.scss';
+
+body {
+  min-height: 100vh;
+  height: auto;
+  background-color: $color-grey;
+}
+
 .error-message {
   position: absolute;
   right: 0;

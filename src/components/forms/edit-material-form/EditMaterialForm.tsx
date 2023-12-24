@@ -98,6 +98,7 @@ const EditMaterialForm = ({ material }: Props) => {
 
   return (
     <div className="edit-material-form-container">
+      <h2>Modifier le matériel {material.name}</h2>
       <form onSubmit={handleSubmit(processForm)}>
         <div className="form-div">
           <label htmlFor="name">Nom du matériel</label>

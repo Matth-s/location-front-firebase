@@ -33,7 +33,7 @@ const MaterialCard = ({ material }: Props) => {
       </div>
 
       <button onClick={() => navigate(`/materiel/${id}`)}>
-        Voir
+        Afficher
       </button>
     </div>
   );

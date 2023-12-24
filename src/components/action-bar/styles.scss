@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .action-bar-container {
   display: flex;
   width: 100%;
@@ -22,10 +24,32 @@
     gap: 20px;
     width: fit-content;
     margin: auto;
+
+    button:not(:last-child) {
+      height: 40px;
+      background-color: $color-blue-purple;
+      color: $color-grey;
+
+      &:hover {
+        background-color: $color-blue-purple-hover;
+      }
+    }
+
+    button:last-child {
+      height: 40px;
+      background-color: $color-red;
+      color: $color-grey;
+
+      &:hover {
+        background-color: $color-red-hover;
+      }
+    }
   }
 
   button {
-    padding: 10px 20px;
+    padding: 0 20px;
+    border-radius: 10px;
+    border: none;
   }
 }
 

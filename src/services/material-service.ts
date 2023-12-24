@@ -54,6 +54,7 @@ export const createMaterialService = createAsyncThunk(
 
       return { status: 201, id: material.id };
     } catch (error: any) {
+      console.log(error);
       throw new Error(error.errorCode);
     }
   }

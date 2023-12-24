@@ -1,5 +1,9 @@
+@import '../../../styles/colors';
+
 .delete-material-form-container {
-  p {
+  width: 500px;
+
+  h3 {
     text-align: center;
   }
 
@@ -10,11 +14,29 @@
     margin: 20px auto 0;
   }
 
+  button,
+  input[type='submit'] {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 10px;
+    color: $color-grey;
+  }
+
   button {
-    padding: 10px 20px;
+    background-color: $color-blue-dark;
+
+    &:hover {
+      background-color: $color-blue-dark-hover;
+    }
   }
 
   input[type='submit'] {
     cursor: pointer;
+    background-color: $color-red;
+
+    &:hover {
+      background-color: $color-red-hover;
+    }
   }
 }

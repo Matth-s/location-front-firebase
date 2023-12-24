@@ -1,7 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
+import iconCross from '../../assets/icon-cross.svg';
 
 import './styles.scss';
-import { useForm } from 'react-hook-form';
 
 type Props = {
   search: string;
@@ -10,7 +12,7 @@ type Props = {
 const MaterialSearchBar = ({ search }: Props) => {
   let [, setSearchParams] = useSearchParams();
 
-  const { handleSubmit, register } = useForm({
+  const { handleSubmit, register, watch } = useForm({
     values: {
       search: search,
     },
@@ -23,11 +25,18 @@ const MaterialSearchBar = ({ search }: Props) => {
   return (
     <div className="material-search-bar">
       <form onSubmit={handleSubmit(processForm)}>
-        <input
-          type="text"
-          placeholder="Je recherche ..."
-          {...register('search')}
-        />
+        <div>
+          <input
+            type="text"
+            placeholder="Je recherche ..."
+            {...register('search')}
+          />
+          {watch('search') !== '' && (
+            <button onClick={() => setSearchParams('')}>
+              <img src={iconCross} alt="supprimer la recherche" />
+            </button>
+          )}
+        </div>
         <input type="submit" value="Rechercher" />
       </form>
     </div>

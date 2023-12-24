@@ -1,4 +1,9 @@
+@import '../../styles//colors.scss';
+
 .material-page-container {
+  background-color: $color-grey;
+  min-height: 100vh;
+
   .material-container {
     margin: auto;
     width: 1400px;
