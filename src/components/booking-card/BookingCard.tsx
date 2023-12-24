@@ -27,8 +27,8 @@ const BookingCard = ({ booking }: Props) => {
     <tr onClick={() => handleViewBooking(id)}>
       <td>{formatDate(bookingDates[0])}</td>
       <td>{formatDate(bookingDates[bookingDates.length - 1])}</td>
-      <td>{firstName}</td>
       <td>{lastName}</td>
+      <td>{firstName}</td>
       <td>{materialName}</td>
       <td>
         <BookingStatus status={isCompleted} />

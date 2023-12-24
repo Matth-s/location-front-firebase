@@ -12,7 +12,7 @@ type Props = {
 const MaterialSearchBar = ({ search }: Props) => {
   let [, setSearchParams] = useSearchParams();
 
-  const { handleSubmit, register, watch } = useForm({
+  const { handleSubmit, register, watch, setValue } = useForm({
     values: {
       search: search,
     },
@@ -32,7 +32,12 @@ const MaterialSearchBar = ({ search }: Props) => {
             {...register('search')}
           />
           {watch('search') !== '' && (
-            <button onClick={() => setSearchParams('')}>
+            <button
+              onClick={() => {
+                setSearchParams('');
+                setValue('search', '');
+              }}
+            >
               <img src={iconCross} alt="supprimer la recherche" />
             </button>
           )}

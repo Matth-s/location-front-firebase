@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { getBookingService } from '../../services/booking-service';
 import { useSearchParams } from 'react-router-dom';
+import { useBookingSearch } from '../../hooks/useBookingSearch';
 
 import BookingCard from '../../components/booking-card/BookingCard';
 import Header from '../../components/header/Header';
@@ -17,8 +18,8 @@ const BookingPage = () => {
   );
   let [searchParams] = useSearchParams();
 
-  let filterParam = searchParams.get('filtre');
-  let searchParam = searchParams.get('search');
+  let filterParam = searchParams.get('filtre') as string;
+  let searchParam = searchParams.get('search') as string;
 
   if (!filterParam) {
     filterParam = '';
@@ -29,6 +30,10 @@ const BookingPage = () => {
   } else {
     searchParam = '';
   }
+
+  const memoBookings = useMemo(() => {
+    return useBookingSearch({ bookings, searchParam, filterParam });
+  }, [filterParam, searchParam, bookings]);
 
   useEffect(() => {
     dispatch(getBookingService());
@@ -49,11 +54,15 @@ const BookingPage = () => {
             search={searchParam}
           />
 
-          {filterParam.length > 0 && searchParam.length > 0 && (
-            <p>
-              4 resultats pour le filtre '{filterParam}' et avec le
-              nom {searchParam}{' '}
-            </p>
+          {(filterParam.length > 0 || searchParam.length > 0) && (
+            <h3>
+              {memoBookings.length} resultat
+              {memoBookings.length > 1 && 's'} pour le filtre '
+              {filterParam === ('encours' || 'termine')
+                ? ''
+                : `${filterParam}`}
+              '
+            </h3>
           )}
 
           <table>
@@ -68,8 +77,8 @@ const BookingPage = () => {
               </tr>
             </thead>
             <tbody>
-              {bookings.length > 0 ? (
-                bookings.map((booking) => (
+              {memoBookings.length > 0 ? (
+                memoBookings.map((booking) => (
                   <BookingCard key={booking.id} booking={booking} />
                 ))
               ) : (

@@ -9,6 +9,12 @@
     margin: auto;
   }
 
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: $color-blue-dark;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -36,6 +42,7 @@
   td,
   th {
     text-align: center;
+    color: $color-blue-dark;
   }
 }
 

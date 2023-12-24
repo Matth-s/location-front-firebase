@@ -1,4 +1,12 @@
+@import '../../../styles/colors';
+
 .delete-booking-container {
+  width: 500px;
+
+  h3 {
+    text-align: center;
+  }
+
   .submit-div {
     display: flex;
     gap: 20px;
@@ -6,11 +14,37 @@
     margin: 20px auto 0;
   }
 
+  button,
+  input[type='submit'] {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 10px;
+    color: $color-grey;
+  }
+
   button {
-    padding: 10px 20px;
+    background-color: $color-blue-dark;
+
+    &:hover {
+      background-color: $color-blue-dark-hover;
+    }
   }
 
   input[type='submit'] {
     cursor: pointer;
+    background-color: $color-red;
+
+    &:hover {
+      background-color: $color-red-hover;
+    }
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .delete-booking-container {
+    width: 95%;
+    margin: auto;
+    padding: 20px 0;
   }
 }

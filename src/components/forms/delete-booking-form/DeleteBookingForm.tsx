@@ -57,7 +57,7 @@ const DeleteBookingForm = ({
   return (
     <div className="delete-booking-container">
       <form onSubmit={handleSubmit(processForm)}>
-        <p>Confirmez-vous la suppression de cette réservation ?</p>
+        <h3>Confirmez-vous la suppression de cette réservation ?</h3>
 
         <div className="submit-div">
           <button

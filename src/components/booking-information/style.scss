@@ -1,12 +1,10 @@
 .booking-information-container {
   width: fit-content;
   height: auto;
-  margin: 0 auto 30px;
 
   ul {
     width: fit-content;
     margin: auto;
-    margin-left: 20px;
   }
 
   li:not(:last-child) {

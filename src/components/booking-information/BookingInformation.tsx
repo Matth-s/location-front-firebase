@@ -14,11 +14,24 @@ const BookingInformation = ({ booking }: Props) => {
       <div>
         <h3>Information client : </h3>
         <ul>
-          <li>Nom: {lastName}</li>
-          <li>Prénom: {firstName}</li>
-          <li>Ville: {city}</li>
-          <li>Rue: {street}</li>
-          <li>Téléphone: {phone}</li>
+          <li>
+            <span className="body-1">Nom: </span>
+            {lastName}
+          </li>
+          <li>
+            <span className="body-1">Prénom: </span>
+            {firstName}
+          </li>
+          <li>
+            <span className="body-1">Ville: </span>
+            {city}
+          </li>
+          <li>
+            <span className="body-1">Rue: </span> {street}
+          </li>
+          <li>
+            <span className="body-1">Téléphone: </span> {phone}
+          </li>
         </ul>
       </div>
     </section>

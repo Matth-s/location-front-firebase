@@ -78,7 +78,6 @@ export const createBookingService = createAsyncThunk(
 
       return { status: 201, id: booking.id };
     } catch (error: any) {
-      console.log(error);
       throw new Error(error);
     }
   }
@@ -94,7 +93,6 @@ export const updateBookingService = createAsyncThunk(
     { dispatch }
   ) => {
     const { bookingDates, idMaterial, id } = booking;
-    console.log(id);
 
     try {
       const materialRef = doc(db, 'materials', idMaterial);
@@ -109,8 +107,6 @@ export const updateBookingService = createAsyncThunk(
         materialData.unavailableDates.filter(
           (date) => !initalUnavailableDates.includes(date)
         );
-
-      console.log(materialData);
 
       const bookingDatesParams = bookingDates as string[];
 
@@ -138,7 +134,6 @@ export const updateBookingService = createAsyncThunk(
 
       booking.unavailableDates = [];
 
-      console.log(booking);
       await updateDoc(bookingRef, {
         ...booking,
       });
@@ -149,7 +144,6 @@ export const updateBookingService = createAsyncThunk(
 
       return { status: 201 };
     } catch (error) {
-      console.log(error);
       throw new Error('Une erreur est survenue');
     }
   }

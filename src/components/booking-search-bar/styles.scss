@@ -1,22 +1,41 @@
+@import '../../styles/colors.scss';
+
 .search-bar-booking-container {
   width: fit-content;
   margin: 0 auto 30px;
 
-  form,
-  div {
-    display: flex;
-  }
-
   form {
-    gap: 20px;
+    display: flex;
+    gap: 10px;
   }
 
-  div {
-    align-items: center;
+  input[type='text'] {
+    background-color: #ffffff;
+    border-radius: 0px;
   }
 
   select {
-    padding: 0 20px;
+    height: 40px;
     cursor: pointer;
+  }
+
+  input[type='submit'] {
+    color: #ffffff;
+    background-color: $color-blue-dark;
+    border: none;
+
+    &:hover {
+      background-color: $color-blue-dark-hover;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .search-bar-booking-container {
+    width: 80%;
+
+    form {
+      flex-direction: column;
+    }
   }
 }

@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../store/store';
 import { logOutService } from '../../services/auth-service';
 
 import iconMenu from '../../assets/icon-menu.svg';
+import iconCross from '../../assets/icon-cross.svg';
 
 import './styles.scss';
 
@@ -19,7 +20,7 @@ const Header = () => {
     <header className="header-container">
       <img
         onClick={() => setOpenMenu((prev) => !prev)}
-        src={iconMenu}
+        src={openMenu ? iconCross : iconMenu}
         alt="Menu"
       />
       <nav className={`${openMenu ? '' : 'close'}`}>

@@ -75,7 +75,7 @@ const EditBookingForm = ({ booking }: Props) => {
         if (res.status === 201) {
           toastifySetup({
             success: true,
-            message: 'Réservation modifé',
+            message: 'La réservation à été modifié avec succès',
           });
         }
       })

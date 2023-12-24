@@ -30,11 +30,8 @@ const BookingSearchBar = ({ search, filter }: Props) => {
   return (
     <div className="search-bar-booking-container">
       <form onSubmit={handleSubmit(processForm)}>
-        <div>
-          <label htmlFor="select">Filtrer par :</label>
-        </div>
         <select {...register('filter')} id="select">
-          <option value="">Aucun</option>
+          <option value="">Choisir un filtre</option>
           <option value="nom">Nom</option>
           <option value="materiel">Matériel</option>
           <option value="prenom">Prénom</option>
