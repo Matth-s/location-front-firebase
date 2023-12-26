@@ -19,7 +19,14 @@ const MaterialSearchBar = ({ search }: Props) => {
   });
 
   const processForm = (data: { search: string }) => {
-    setSearchParams(`recherche=${data.search}`);
+    setSearchParams(
+      `recherche=${data.search.trim().replaceAll(' ', '_')}`
+    );
+  };
+
+  const handleDeleteSearch = () => {
+    setSearchParams('');
+    setValue('search', '');
   };
 
   return (
@@ -33,9 +40,9 @@ const MaterialSearchBar = ({ search }: Props) => {
           />
           {watch('search') !== '' && (
             <button
+              type="button"
               onClick={() => {
-                setSearchParams('');
-                setValue('search', '');
+                handleDeleteSearch();
               }}
             >
               <img src={iconCross} alt="supprimer la recherche" />

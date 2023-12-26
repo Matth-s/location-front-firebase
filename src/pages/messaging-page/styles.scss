@@ -17,6 +17,10 @@
     }
   }
 
+  .div-table {
+    width: 100%;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -41,5 +45,21 @@
   th,
   h2 {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .messaging-page-container {
+    .table-section {
+      width: 95%;
+
+      .div-table {
+        overflow-x: scroll;
+      }
+
+      table {
+        min-width: 700px;
+      }
+    }
   }
 }

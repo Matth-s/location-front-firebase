@@ -57,37 +57,38 @@ const BookingPage = () => {
           {(filterParam.length > 0 || searchParam.length > 0) && (
             <h3>
               {memoBookings.length} resultat
-              {memoBookings.length > 1 && 's'} pour le filtre '
-              {filterParam === ('encours' || 'termine')
-                ? ''
-                : `${filterParam}`}
-              '
+              {memoBookings.length > 1 && 's'} trouvé
             </h3>
           )}
 
-          <table>
-            <thead>
-              <tr>
-                <th>Date de début</th>
-                <th>Date de fin</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Matériel</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {memoBookings.length > 0 ? (
-                memoBookings.map((booking) => (
-                  <BookingCard key={booking.id} booking={booking} />
-                ))
-              ) : (
-                <tr>
-                  <td>Aucun</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+          {memoBookings.length > 0 ? (
+            <div className="table-div">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Matériel</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {memoBookings.length > 0 &&
+                    memoBookings.map((booking) => (
+                      <BookingCard
+                        key={booking.id}
+                        booking={booking}
+                      />
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            searchParam.length === 0 &&
+            filterParam.length === 0 && <h3>Aucune réservation</h3>
+          )}
         </div>
       )}
     </div>

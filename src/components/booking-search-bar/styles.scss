@@ -19,7 +19,10 @@
     cursor: pointer;
   }
 
-  input[type='submit'] {
+  input[type='submit'],
+  button {
+    padding: 0 20px;
+    height: 40px;
     color: #ffffff;
     background-color: $color-blue-dark;
     border: none;
@@ -30,12 +33,35 @@
   }
 }
 
+@media screen and (max-width: 750px) {
+  .search-bar-booking-container {
+    width: 80%;
+
+    form {
+      flex-direction: column;
+
+      input,
+      select,
+      button {
+        margin: auto;
+        width: 60%;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 580px) {
   .search-bar-booking-container {
     width: 80%;
 
     form {
       flex-direction: column;
+
+      input,
+      select,
+      button {
+        width: 100%;
+      }
     }
   }
 }

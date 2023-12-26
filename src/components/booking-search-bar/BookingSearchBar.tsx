@@ -20,11 +20,14 @@ const BookingSearchBar = ({ search, filter }: Props) => {
 
   const processForm = (data: { search: string; filter: string }) => {
     setSearchParams(
-      `filtre=${data.filter}&search=${data.search.replaceAll(
-        ' ',
-        '_'
-      )}`
+      `filtre=${data.filter}&search=${data.search
+        .trim()
+        .replaceAll(' ', '_')}`
     );
+  };
+
+  const handleDeleteSearch = () => {
+    setSearchParams('filtre=&search=');
   };
 
   return (
@@ -46,6 +49,12 @@ const BookingSearchBar = ({ search, filter }: Props) => {
         />
 
         <input type="submit" value="Appliquer les filtres" />
+
+        {(search.length > 0 || filter.length > 0) && (
+          <button type="button" onClick={() => handleDeleteSearch()}>
+            Effacer les filtres
+          </button>
+        )}
       </form>
     </div>
   );

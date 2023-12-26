@@ -48,49 +48,53 @@ const MessagingPage = () => {
           {refechLoading ? (
             <Loader />
           ) : (
-            <table>
-              <thead>
-                <tr>
-                  <td>Début</td>
-                  <td>Fin</td>
-                  <td>Nom</td>
-                  <td>Prenom</td>
-                  <td>Matériel</td>
-                  <td>Téléphone</td>
-                  <td>Status</td>
-                </tr>
-              </thead>
-              <tbody>
-                {messagings.length > 0 &&
-                  messagings
-                    .slice()
-                    .sort((a, b) => b.timestamp - a.timestamp)
-                    .map((messaging) => (
-                      <tr
-                        onClick={() =>
-                          navigate(`/messagerie/${messaging.id}`)
-                        }
-                        key={messaging.id}
-                      >
-                        <td>
-                          {formatDate(messaging.bookingDates[0])}
-                        </td>
-                        <td>
-                          {formatDate(
-                            messaging.bookingDates[
-                              messaging.bookingDates.length - 1
-                            ]
-                          )}
-                        </td>
-                        <td>{messaging.firstName}</td>
-                        <td>{messaging.lastName}</td>
-                        <td>{messaging.materialName}</td>
-                        <td>{messaging.phone}</td>
-                        <td>{messaging.isRead ? 'Lu' : 'Non lu'}</td>
-                      </tr>
-                    ))}
-              </tbody>
-            </table>
+            <div className="div-table">
+              <table>
+                <thead>
+                  <tr>
+                    <td>Début</td>
+                    <td>Fin</td>
+                    <td>Nom</td>
+                    <td>Prenom</td>
+                    <td>Matériel</td>
+                    <td>Téléphone</td>
+                    <td>Status</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {messagings.length > 0 &&
+                    messagings
+                      .slice()
+                      .sort((a, b) => b.timestamp - a.timestamp)
+                      .map((messaging) => (
+                        <tr
+                          onClick={() =>
+                            navigate(`/messagerie/${messaging.id}`)
+                          }
+                          key={messaging.id}
+                        >
+                          <td>
+                            {formatDate(messaging.bookingDates[0])}
+                          </td>
+                          <td>
+                            {formatDate(
+                              messaging.bookingDates[
+                                messaging.bookingDates.length - 1
+                              ]
+                            )}
+                          </td>
+                          <td>{messaging.firstName}</td>
+                          <td>{messaging.lastName}</td>
+                          <td>{messaging.materialName}</td>
+                          <td>{messaging.phone}</td>
+                          <td>
+                            {messaging.isRead ? 'Lu' : 'Non lu'}
+                          </td>
+                        </tr>
+                      ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </section>
       )}

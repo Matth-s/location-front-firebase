@@ -15,6 +15,10 @@
     color: $color-blue-dark;
   }
 
+  .table-div {
+    width: 100%;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -37,6 +41,7 @@
     width: 100%;
     height: 80px;
     cursor: pointer;
+    position: relative;
   }
 
   td,
@@ -58,9 +63,14 @@
 @media screen and (max-width: 800px) {
   .booking-page-container {
     .booking-page-content {
-      table {
-        width: 700px;
+      overflow: hidden;
+
+      .table-div {
         overflow-x: scroll;
+      }
+
+      table {
+        min-width: 785px;
       }
     }
   }

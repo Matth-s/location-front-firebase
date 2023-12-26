@@ -23,6 +23,7 @@ const BookingPdf = ({ booking }: Props) => {
       width: '100%',
       display: 'flex',
       gap: '50px',
+      height: 'auto',
       alignItems: 'center',
     },
     bold: { fontSize: '13px', fontWeight: 600 },
@@ -42,7 +43,7 @@ const BookingPdf = ({ booking }: Props) => {
   };
 
   return (
-    <div className="view-booking-pdf-container  absolute absolute__center">
+    <div className="view-booking-pdf-container">
       <div
         style={{
           ...styles.flex,
@@ -52,7 +53,7 @@ const BookingPdf = ({ booking }: Props) => {
           document={<BookingCardPdf receiptData={booking} />}
           fileName={booking.id}
         >
-          <span>Télécharger</span>
+          <button>Télécharger</button>
         </PDFDownloadLink>
 
         <BlobProvider
@@ -60,7 +61,7 @@ const BookingPdf = ({ booking }: Props) => {
         >
           {({ url }) => (
             <a href={url as string} target="_blank">
-              <span>Imprimer</span>
+              <button>Imprimer</button>
             </a>
           )}
         </BlobProvider>

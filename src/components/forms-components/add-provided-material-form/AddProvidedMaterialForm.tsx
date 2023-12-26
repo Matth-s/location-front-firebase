@@ -32,61 +32,63 @@ const AddProvidedMaterialForm = ({
       <h2>Materiel à founir</h2>
 
       {providedMaterials.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Matériel</th>
-              <th>Quantité</th>
-              <th>Prix</th>
-              <th>total</th>
-              <th></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {providedMaterials.map((providedMaterial, index) => (
-              <tr key={providedMaterial.id}>
-                <td>
-                  <input
-                    type="text"
-                    {...register(
-                      `providedMaterialsBooking.${index}.materialName`
-                    )}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    onWheel={(event) => event.currentTarget.blur()}
-                    {...register(
-                      `providedMaterialsBooking.${index}.quantity`
-                    )}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    onWheel={(event) => event.currentTarget.blur()}
-                    {...register(
-                      `providedMaterialsBooking.${index}.price`
-                    )}
-                  />
-                </td>
-                <td>{providedMaterial.total}</td>
-                <td>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      deleteProvidedMaterial(providedMaterial.id)
-                    }
-                  >
-                    <img src={iconCross} alt="supprimer" />
-                  </button>
-                </td>
+        <div className="table-div">
+          <table>
+            <thead>
+              <tr>
+                <th>Matériel</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>total</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {providedMaterials.map((providedMaterial, index) => (
+                <tr key={providedMaterial.id}>
+                  <td>
+                    <input
+                      type="text"
+                      {...register(
+                        `providedMaterialsBooking.${index}.materialName`
+                      )}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      onWheel={(event) => event.currentTarget.blur()}
+                      {...register(
+                        `providedMaterialsBooking.${index}.quantity`
+                      )}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      onWheel={(event) => event.currentTarget.blur()}
+                      {...register(
+                        `providedMaterialsBooking.${index}.price`
+                      )}
+                    />
+                  </td>
+                  <td>{providedMaterial.total}</td>
+                  <td>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        deleteProvidedMaterial(providedMaterial.id)
+                      }
+                    >
+                      <img src={iconCross} alt="supprimer" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
         <h3>Aucun</h3>
       )}

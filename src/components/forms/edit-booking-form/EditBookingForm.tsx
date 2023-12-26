@@ -93,7 +93,10 @@ const EditBookingForm = ({ booking }: Props) => {
       {isLoading ? (
         <p>chargement</p>
       ) : error ? (
-        <p>erreur</p>
+        <p>
+          Ce matériel a été supprimé la modification de ce dernier est
+          impossible
+        </p>
       ) : (
         <div className="create-booking-form-container">
           <h2>Modifier la réservation</h2>

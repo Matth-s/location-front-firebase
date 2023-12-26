@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../store/store';
 import { logOutService } from '../../services/auth-service';
 
@@ -11,6 +11,15 @@ import './styles.scss';
 const Header = () => {
   const dispatch = useAppDispatch();
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = 'hidden';
+      return;
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [openMenu]);
 
   const handleLogOut = () => {
     dispatch(logOutService());

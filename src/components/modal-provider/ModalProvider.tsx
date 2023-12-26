@@ -5,6 +5,7 @@ import {
   materialSchema,
   messagingSchema,
 } from '../../schema';
+import { useEffect } from 'react';
 
 import CloseModalButton from '../close-modal-button/CloseModalButton';
 import DeleteMaterialForm from '../forms/delete-material-form/DeleteMaterialForm';
@@ -25,6 +26,15 @@ type Props = {
 
 const ModalProvider = ({ material, booking, messaging }: Props) => {
   const { modalToOpen } = useAppSelector((state) => state.modalSlice);
+
+  useEffect(() => {
+    if (modalToOpen === 0) {
+      document.body.style.overflow = 'unset';
+      return;
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [modalToOpen]);
 
   switch (modalToOpen) {
     case 1:

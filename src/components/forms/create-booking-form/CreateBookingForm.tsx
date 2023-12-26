@@ -125,8 +125,7 @@ const CreateBookingForm = ({ booking }: Props) => {
             type="text"
             id="materialName"
             {...register('materialName')}
-            defaultValue={booking.materialName}
-            onWheel={(event) => event.currentTarget.blur()}
+            disabled
           />
           {errors.materialName?.message && (
             <p className="error-message">

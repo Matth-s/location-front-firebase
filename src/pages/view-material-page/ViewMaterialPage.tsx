@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { setModalToOpen } from '../../store/features/modal-slice';
 import { bookingSchema } from '../../schema';
 import { materialToBooking } from '../../helpers/bookingHelpers';
+import { useScrollTop } from '../../hooks/useScrollTop';
 
 import Header from '../../components/header/Header';
 import MaterielCarousel from '../../components/material-carousel/MaterielCarousel';
@@ -15,6 +16,7 @@ import MaterialPresentation from '../../components/material-presentation/Materia
 import Loader from '../../components/loader/Loader';
 
 import './styles.scss';
+import NotFoundContainer from '../../components/not-found-container/NotFoundContainer';
 
 const booking: bookingSchema = {
   id: '',
@@ -51,6 +53,8 @@ const ViewMaterialPage = () => {
     if (isLoading) {
       dispatch(getMaterialsService());
     }
+
+    useScrollTop();
   }, [isLoading]);
 
   const findMaterial = materials.find(
@@ -74,7 +78,9 @@ const ViewMaterialPage = () => {
             <button onClick={() => dispatch(setModalToOpen(2))}>
               Ajouter une réservation
             </button>
-            <button>Afficher le calendrier</button>
+
+            {/* <button>Afficher le calendrier</button> */}
+
             <button
               onClick={() =>
                 navigate(
@@ -114,7 +120,12 @@ const ViewMaterialPage = () => {
           />
         </div>
       ) : (
-        <p>Ce matériel n'existe pas</p>
+        <NotFoundContainer>
+          <h2>Ce matériel n'existe pas</h2>
+          <button onClick={() => navigate('/materiel')}>
+            Revenir aux matériels
+          </button>
+        </NotFoundContainer>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getMaterialsService } from '../../services/material-service';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 
@@ -11,12 +11,16 @@ import Loader from '../../components/loader/Loader';
 import './styles.scss';
 
 const MaterialPage = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { search } = useLocation();
 
-  const formatSearch = search
+  const formatSearch = decodeURIComponent(search)
     .replace('?recherche=', '')
-    .toLowerCase();
+    .toLowerCase()
+    .replaceAll('_', ' ')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
 
   const { isLoading, materials, error } = useAppSelector(
     (state) => state.materialSlice
@@ -30,7 +34,11 @@ const MaterialPage = () => {
 
   const filteredMaterials = formatSearch
     ? materials.filter((item) =>
-        item.name.toLowerCase().includes(formatSearch)
+        item.name
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .includes(formatSearch)
       )
     : materials;
 
@@ -54,12 +62,19 @@ const MaterialPage = () => {
             </h3>
           )}
 
-          {filteredMaterials.length > 0 && (
+          {filteredMaterials.length > 0 ? (
             <div className="material-container">
               {filteredMaterials.map((material) => (
                 <MaterialCard key={material.id} material={material} />
               ))}
             </div>
+          ) : (
+            <button
+              className="button-add-material"
+              onClick={() => navigate('/ajouter-un-materiel')}
+            >
+              Ajouter un matériel
+            </button>
           )}
         </>
       )}

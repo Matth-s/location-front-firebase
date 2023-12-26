@@ -4,7 +4,7 @@ import {
   getBookingService,
   patchStatusBookingService,
 } from '../../services/booking-service';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { setModalToOpen } from '../../store/features/modal-slice';
 import { toastifySetup } from '../../utils/toastifySetup';
 import { formatDate } from '../../helpers/fomatDate';
@@ -16,10 +16,12 @@ import BookingInformation from '../../components/booking-information/BookingInfo
 import BookingProvidedMaterial from '../../components/boooking-provided-material/BookingProvidedMaterial';
 import Loader from '../../components/loader/Loader';
 import BookingStatus from '../../components/booking-status/BookingStatus';
+import NotFoundContainer from '../../components/not-found-container/NotFoundContainer';
 
 import './styles.scss';
 
 const ViewBookingPage = () => {
+  const navigate = useNavigate();
   const { isLoading, bookings, error } = useAppSelector(
     (state) => state.bookingSlice
   );
@@ -107,7 +109,12 @@ const ViewBookingPage = () => {
           <ModalProvider booking={findBooking} />
         </div>
       ) : (
-        <p>cette reservation n'existe pas</p>
+        <NotFoundContainer>
+          <h2>Cette réservartion n'existe pas</h2>
+          <button onClick={() => navigate('/reservation')}>
+            Revenir aux reservations
+          </button>
+        </NotFoundContainer>
       )}
     </div>
   );

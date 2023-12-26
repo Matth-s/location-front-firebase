@@ -19,8 +19,6 @@ const BookingCalendar = ({
   setValue,
   bookingDates,
 }: Props) => {
-  moment.locale('fr-Fr');
-
   const [focusedInput, setFocusedInput] = useState<any>(null);
 
   const [startDate, setStartDate] = useState<null | moment.Moment>(
@@ -70,7 +68,12 @@ const BookingCalendar = ({
   }, [bookingDates]);
 
   return (
-    <div className={`booking-calendar-container`}>
+    <div
+      className={`booking-calendar-container`}
+      style={{
+        height: focusedInput ? '445px' : 'auto',
+      }}
+    >
       <h2>Dates de réservation</h2>
       <DateRangePicker
         startDate={startDate}
@@ -78,9 +81,7 @@ const BookingCalendar = ({
         endDate={endDate}
         endDateId="test_end_date_id"
         onDatesChange={handleDatesChange}
-        focusedInput={
-          focusedInput === null ? 'startDate' : focusedInput
-        }
+        focusedInput={focusedInput}
         onFocusChange={(focusedInput) =>
           setFocusedInput(
             focusedInput === 'endDate' ? 'endDate' : 'startDate'

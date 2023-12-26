@@ -1,3 +1,5 @@
+@import '../../../styles/colors.scss';
+
 .login-form-container {
   position: absolute;
   left: 50%;
@@ -37,6 +39,17 @@
 
     img {
       width: 15px;
+    }
+  }
+
+  input[type='submit'] {
+    border: none;
+    background-color: $color-purple;
+    border-radius: 10px;
+    color: $color-grey;
+
+    &:hover {
+      background-color: $color-purple-hover;
     }
   }
 }

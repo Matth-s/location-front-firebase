@@ -13,8 +13,8 @@ type Props = {
   arrayPicture: arrayPictureSchema[];
   setImagesToUpload: any;
   imagesToUpload: any;
-  setValue: UseFormSetValue<materialSchema>;
   presentationPicture: string;
+  setValue: UseFormSetValue<materialSchema>;
 };
 
 const ImportImageForm = ({
@@ -42,7 +42,9 @@ const ImportImageForm = ({
   };
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: {},
+    accept: {
+      'image/*': [],
+    },
     onDrop: (acceptedFiles) => {
       acceptedFiles.forEach((file) => {
         const id = uuidv4();

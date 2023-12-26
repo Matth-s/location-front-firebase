@@ -1,14 +1,60 @@
 .booking-calendar-container {
   width: 320px;
-  margin: auto;
-  height: 480px;
+  margin: 20px auto 20px;
+  position: relative;
 
   .DateRangePicker_1 {
     width: 100%;
   }
 
+  .DateRangePickerInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   h2 {
     text-align: center;
     margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .booking-calendar-container {
+    width: 90%;
+    position: relative;
+
+    .DateRangePickerInput {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .DateInput {
+      width: 100%;
+
+      input {
+        text-align: center;
+      }
+    }
+
+    .DateRangePickerInput_arrow {
+      margin: auto;
+    }
+
+    .DateInput_fang {
+      display: none;
+    }
+
+    .DateRangePicker_picker {
+      top: 140px !important;
+      left: 0 !important;
+      right: inherit !important;
+    }
+
+    .DayPicker__withBorder {
+      position: absolute !important;
+      left: 0 !important;
+      right: inherit !important;
+    }
   }
 }
