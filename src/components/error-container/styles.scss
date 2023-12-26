@@ -1,27 +1,29 @@
 @import '../../styles/colors.scss';
 
-.not-found-container {
+.error-container {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: max-content;
-  height: auto;
-  padding: 20px;
 
   h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   button {
     display: block;
     margin: auto;
-    height: 40px;
-    border-radius: 8px;
-    padding: 0 20px;
     border: none;
-    background-color: $color-blue-dark;
+    height: 40px;
+    padding: 0 20px;
     color: $color-grey;
+    background-color: $color-blue-dark;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: $color-blue-dark-hover;
+    }
   }
 }

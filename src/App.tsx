@@ -58,6 +58,7 @@ function App() {
           </Route>
           <Route path="/" element={<Navigate to={'/materiel'} />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<Navigate to={'/materiel'} />} />
         </Routes>
       )}
     </>

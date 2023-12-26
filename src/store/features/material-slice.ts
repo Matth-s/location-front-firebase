@@ -24,12 +24,14 @@ const materialSlice = createSlice({
       state.materials = action.payload;
       (state.error = false), (state.isLoading = false);
     },
+
     setNewMaterial: (
       state,
       action: PayloadAction<materialSchema>
     ) => {
       state.materials.push(action.payload);
     },
+
     setDeleteMaterial: (state, action: PayloadAction<string>) => {
       const filtredMaterials = state.materials.filter(
         (material) => material.id !== action.payload
@@ -37,6 +39,7 @@ const materialSlice = createSlice({
 
       state.materials = filtredMaterials;
     },
+
     setUpdateMaterial: (
       state,
       action: PayloadAction<materialSchema>
@@ -48,6 +51,15 @@ const materialSlice = createSlice({
 
       state.materials = [...filtredMaterials, payloadMaterialPayload];
     },
+
+    setLoadingMaterial: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
+
+    setErrorMaterial: (state) => {
+      state.error = true;
+      state.isLoading = false;
+    },
   },
 });
 
@@ -56,6 +68,8 @@ export const {
   setNewMaterial,
   setDeleteMaterial,
   setUpdateMaterial,
+  setErrorMaterial,
+  setLoadingMaterial,
 } = materialSlice.actions;
 
 export default materialSlice.reducer;

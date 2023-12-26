@@ -45,16 +45,33 @@
       display: none;
     }
 
+    .CalendarMonth,
+    .CalendarMonth_1 {
+      padding: 0 !important;
+    }
+
+    .DayPicker_focusRegion,
+    .DayPicker_focusRegion_1 {
+      width: 290px !important;
+    }
+
+    .CalendarMonthGrid__horizontal {
+      left: 5px;
+    }
+
     .DateRangePicker_picker {
       top: 140px !important;
-      left: 0 !important;
+      left: -48px !important;
       right: inherit !important;
+      width: 280px !important;
     }
 
     .DayPicker__withBorder {
       position: absolute !important;
       left: 0 !important;
       right: inherit !important;
+      width: 291px !important;
+      overflow: hidden !important;
     }
   }
 }

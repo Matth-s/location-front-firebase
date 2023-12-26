@@ -12,6 +12,8 @@ import { db } from '../utils/firebaseSetup';
 import { materialSchema } from '../schema';
 import {
   setDeleteMaterial,
+  setErrorMaterial,
+  setLoadingMaterial,
   setMaterials,
   setNewMaterial,
   setUpdateMaterial,
@@ -22,6 +24,8 @@ export const getMaterialsService = createAsyncThunk(
   'getMaterial',
   async (_, { dispatch }) => {
     try {
+      dispatch(setLoadingMaterial(true));
+
       const materialSnapShot = await getDocs(
         collection(db, 'materials')
       );
@@ -34,6 +38,8 @@ export const getMaterialsService = createAsyncThunk(
 
       dispatch(setMaterials(data));
     } catch (error: any) {
+      dispatch(setErrorMaterial());
+      console.log(error);
       throw new Error(error.errorCode);
     }
   }

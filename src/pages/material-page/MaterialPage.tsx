@@ -9,6 +9,7 @@ import MaterialSearchBar from '../../components/material-search-bar/MaterialSear
 import Loader from '../../components/loader/Loader';
 
 import './styles.scss';
+import ErrorContainer from '../../components/error-container/ErrorContainer';
 
 const MaterialPage = () => {
   const navigate = useNavigate();
@@ -26,9 +27,13 @@ const MaterialPage = () => {
     (state) => state.materialSlice
   );
 
+  const getMaterial = async () => {
+    dispatch(getMaterialsService()).unwrap();
+  };
+
   useEffect(() => {
     if (isLoading) {
-      dispatch(getMaterialsService());
+      getMaterial();
     }
   }, []);
 
@@ -49,7 +54,9 @@ const MaterialPage = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <p>Une erreur est survenue</p>
+        <ErrorContainer>
+          <button onClick={() => getMaterial()}>Recharger</button>
+        </ErrorContainer>
       ) : (
         <>
           <MaterialSearchBar search={formatSearch} />
